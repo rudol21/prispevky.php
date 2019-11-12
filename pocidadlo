@@ -1,0 +1,9 @@
+<?php
+session_start();//musi byt vzdy ked puzivajú session
+if(!isset($_SESSION['pocet'])){
+    $_SESSION['pocet'] = 1;
+}
+
+$i=1;
+echo "Si tu {$_SESSION['pocet']}-krat.";
+$_SESSION['pocet']++;
