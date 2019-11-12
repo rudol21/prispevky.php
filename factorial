@@ -1,0 +1,25 @@
+<?php
+
+function fact($a)
+{
+    $vysledok=1;
+    for($inc=$a;$inc>0;$inc--)
+    {
+        $vysledok=$vysledok*$inc;
+    }
+    echo $vysledok;
+    echo "<br>";
+}
+
+for($a=1;$a<11;$a++)
+{
+  /*  echo $a;
+    echo "!=\n";
+  spájanie retazcov php je pomocou bodka*/
+    echo "$a!=";
+   /* echo "\$a!="; ked chcem vzpisa5 znaky $a...*/
+    fact($a);
+
+}
+
+?>
