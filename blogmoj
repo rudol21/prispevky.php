@@ -1,0 +1,63 @@
+<?php
+echo "funguje";
+class prispevok
+{
+    private $datum;
+    private $obsah;
+    private $url;
+
+    function __construct($pDatum, $pObsah, $pUrl)
+    {
+        $this->datum = $pDatum;
+        $this->obsah = $pObsah;
+        $this->url = $pUrl;
+    }
+    function getDatum() {
+        return $this->datum;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObsah()
+    {
+        return $this->obsah;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+}
+class ObsahStranky
+{
+    private $prispevky = array();
+
+    function pridajPrispevokDoZozn($prispevok)
+    {
+        array_push($this->prispevky, $prispevok);
+    }
+
+    function vypis()
+    {
+        foreach ($this->prispevky as $prispevok)
+        {
+            echo $prispevok->getObsah() .'</br>';
+            echo $prispevok->getDatum().'</br>';
+            echo $prispevok->getUrl().'</br>';
+        }
+    }
+    function zapisDoSuboru($prispevok)
+    {
+        $myfile = fopen("newfile.txt", "w");
+        fwrite($myfile, $prispevok->getObsah()."//".$prispevok->getDatum()."//".$prispevok->getUrl());
+        fclose();
+    }
+
+}
+
+
+?>
